@@ -1,31 +1,29 @@
-package edu.epam.listtask.variables;
+package edu.epam.listtask.variable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-
 
 public class Student {
     private static final Logger log = LogManager.getLogger(String.valueOf(Student.class));
 
-    private int id;
+    private long id;
     private String name;
     private String surname;
     private String patronymic;
     private String birthday;
     private String address;
-    private String number;
-    private String faculty;
+    private String telephoneNumber;
+    private Faculty faculty;
     private int curse;
     private int group;
 
-    public Student(int id, String name, String surname, String patronymic, String birthday, String address, String number, String faculty, int curse, int group) {
+    public Student(long id, String name, String surname, String patronymic, String birthday, String address, String telephoneNumber, Faculty faculty, int curse, int group) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
         this.birthday = birthday;
         this.address = address;
-        this.number = number;
+        this.telephoneNumber = telephoneNumber;
         this.faculty = faculty;
         this.curse = curse;
         this.group = group;
@@ -33,11 +31,11 @@ public class Student {
 
     public Student() {}
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -81,19 +79,19 @@ public class Student {
         this.address = address;
     }
 
-    public String getNumber() {
-        return number;
+    public String getTelephoneNumber() {
+        return telephoneNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
-    public String getFaculty() {
+    public Faculty getFaculty() {
         return faculty;
     }
 
-    public void setFaculty(String faculty) {
+    public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }
 
@@ -116,7 +114,7 @@ public class Student {
     @Override
     public int hashCode() {
         int code = 1;
-        code=code*id;
+        code=code*(int)id;
         code=code*name.length();
         code=code*surname.length();
         code=code*patronymic.length();
@@ -135,7 +133,7 @@ public class Student {
             return false;
         }
         Student students = (Student) numbersArray;
-        if(students.id == this.id && students.name == this.name && students.surname == this.surname && students.patronymic == this.patronymic && students.birthday == this.birthday) {
+        if(students.id == this.id && students.getName().equals(this.getName())&& students.getFaculty().equals(this.getFaculty())) {
             log.info("Arrays equals");
             return true;
         }

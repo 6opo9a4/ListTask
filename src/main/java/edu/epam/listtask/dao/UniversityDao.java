@@ -1,17 +1,17 @@
 package edu.epam.listtask.dao;
 
-import edu.epam.listtask.exeption.DaoException;
-import edu.epam.listtask.variables.Student;
-
-import java.util.ArrayList;
+import edu.epam.listtask.exception.DaoException;
+import edu.epam.listtask.variable.Faculty;
+import edu.epam.listtask.variable.Student;
+import java.util.List;
 
 public interface UniversityDao {
-    void addStudent(Student student, ArrayList<Student> students);
-    void dellStudent(int position, ArrayList<Student> students) throws DaoException;
-    void changeStudent(int position, Student student, ArrayList<Student> students) throws DaoException;
-    ArrayList<Student> findStudent(int id, ArrayList<Student> students);
-    ArrayList<Student> getFacultyStudents(ArrayList<Student> students, String faculty);
-    ArrayList<Student> getFacultyStudents(ArrayList<Student> students, String faculty,int curse);
-    ArrayList<Student> getBirthdayStudents(ArrayList<Student> students, String birthday);
-    ArrayList<Student> getGroupStudents(ArrayList<Student> students, int group);
+    void addStudent(Student student, List<Student> students);
+    void deleteStudent(int position, List<Student> students) throws DaoException;
+    void changeStudent(int position, Student student, List<Student> students) throws DaoException;
+    List<Student> findStudent(int id, List<Student> students);
+    List<Student> findFacultyStudents(List<Student> students, Faculty faculty);
+    List<Student> findFacultyStudents(List<Student> students, Faculty faculty, int curse);
+    List<Student> findBirthdayStudents(List<Student> students, String birthday);
+    List<Student> findGroupStudents(List<Student> students, int group);
 }
